@@ -1,0 +1,7 @@
+{
+  "extends": "./tsconfig.json",  // 기본 설정 상속
+  "compilerOptions": {
+    "noEmit": false,
+    "allowImportingTsExtensions": false,
+  }
+}
