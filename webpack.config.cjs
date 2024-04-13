@@ -10,13 +10,21 @@ module.exports = {
     rules: [
       {
         test: /\.ts$/,
-        use: 'ts-loader',
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: [
+              '@babel/preset-env',     // 최신 JavaScript 기능을 변환
+              '@babel/preset-typescript'  // TypeScript 지원
+            ]
+          }
+        },
         exclude: /node_modules/
       }
     ]
   },
   resolve: {
-    extensions: ['.ts', '.js'],
+    extensions: ['.ts', '.js'],  // .ts와 .js 파일 모두 해석
   },
   target: 'node'
 };

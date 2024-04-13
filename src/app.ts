@@ -1,6 +1,6 @@
 import express from 'express';
-import { sendMessage } from './services/channelServices';
-import { PORT, TEST_CHANNELS_1, TEST_CHANNELS_2, TEST_CHANNELS_3, TEST_CHANNELS_4 } from './configs';
+import { sendMessage } from './services/channelServices.ts';
+import { PORT, TEST_CHANNELS_1, TEST_CHANNELS_2, TEST_CHANNELS_3, TEST_CHANNELS_4 } from './configs.ts';
 
 const app = express();
 app.use(express.json());

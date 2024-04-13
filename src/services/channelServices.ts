@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { TELEGRAM_TOKEN } from '../configs';
+import { TELEGRAM_TOKEN } from '../configs.ts';
 
 export const sendMessage = async (channel: string, message: string) => {
   try {
