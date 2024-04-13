@@ -2,6 +2,7 @@ import axios from 'axios';
 import { TELEGRAM_TOKEN, TEST_CHANNELS } from '../configs';
 
 export const sendMessage = async (message: string) => {
+  console.log(`Sending message to channels: ${TEST_CHANNELS.join(', ')}`);
   const promises = TEST_CHANNELS.map(channel => {
     return axios.post(`https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`, {
       chat_id: channel,
