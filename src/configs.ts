@@ -3,7 +3,7 @@ dotenv.config();
 
 export const PORT = process.env.PORT;
 export const TELEGRAM_TOKEN = process.env.TELEGRAM_TOKEN || '';
-export const TEST_CHANNELS_1 = process.env.TEST_CHANNEL_1 || '';
-export const TEST_CHANNELS_2 = process.env.TEST_CHANNEL_2 || '';
-export const TEST_CHANNELS_3 = process.env.TEST_CHANNEL_3 || '';
-export const TEST_CHANNELS_4 = process.env.TEST_CHANNEL_4 || '';
+export const CRYPTO_SIGNALS = process.env.CRYPTO_SIGNALS || '';
+export const VOLUME_PATTERNS = process.env.VOLUME_PATTERNS || '';
+export const ALTCOIN_ALERTS = process.env.ALTCOIN_ALERTS || '';
+export const LONGTERM_ZONES = process.env.LONGTERM_ZONES || '';

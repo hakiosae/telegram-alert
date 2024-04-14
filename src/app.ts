@@ -1,25 +1,55 @@
 import express from 'express';
 import { sendMessage } from './services/channelServices.ts';
-import { PORT, TEST_CHANNELS_1, TEST_CHANNELS_2, TEST_CHANNELS_3, TEST_CHANNELS_4 } from './configs.ts';
+import { PORT, CRYPTO_SIGNALS, VOLUME_PATTERNS, ALTCOIN_ALERTS, LONGTERM_ZONES } from './configs.ts';
 
 const app = express();
 app.use(express.json());
 app.use(express.text({ type: 'text/plain' }));
 
-app.post('/tradingview-webhook', async (req, res) => {
+app.post('/crypto-signals', async (req, res) => {
   const message = req.body
   try {
-    await sendMessage(TEST_CHANNELS_1, message);
-    await sendMessage(TEST_CHANNELS_2, message);
-    await sendMessage(TEST_CHANNELS_3, message);
-    await sendMessage(TEST_CHANNELS_4, message);
-
+    await sendMessage(CRYPTO_SIGNALS, message);
     res.status(200).send('Alert sent to Telegram');
   } catch (error) {
     console.error('Error sending message to Telegram:', error);
     res.status(500).send('Error sending message to Telegram');
   }
 });
+
+app.post('/volume-patterns', async (req, res) => {
+  const message = req.body
+  try {
+    await sendMessage(VOLUME_PATTERNS, message);
+    res.status(200).send('Alert sent to Telegram');
+  } catch (error) {
+    console.error('Error sending message to Telegram:', error);
+    res.status(500).send('Error sending message to Telegram');
+  }
+});
+
+app.post('/altcoin-alerts', async (req, res) => {
+  const message = req.body
+  try {
+    await sendMessage(ALTCOIN_ALERTS, message);
+    res.status(200).send('Alert sent to Telegram');
+  } catch (error) {
+    console.error('Error sending message to Telegram:', error);
+    res.status(500).send('Error sending message to Telegram');
+  }
+});
+
+app.post('/longterm-zones', async (req, res) => {
+  const message = req.body
+  try {
+    await sendMessage(LONGTERM_ZONES, message);
+    res.status(200).send('Alert sent to Telegram');
+  } catch (error) {
+    console.error('Error sending message to Telegram:', error);
+    res.status(500).send('Error sending message to Telegram');
+  }
+});
+
 
 app.listen(PORT, () => {
   console.log(`Express server is listening on ${PORT}`);
