@@ -6,6 +6,8 @@ export const sendMessage = async (channel: string, message: string) => {
     await axios.post(`https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`, {
       chat_id: channel,
       text: message,
+    }, {
+      timeout: 10000  // 타임아웃을 10,000ms (10초)로 설정
     });
     console.log(`Message sent to channel ${channel}`);
   } catch (error) {
