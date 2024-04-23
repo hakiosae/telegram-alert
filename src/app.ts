@@ -5,17 +5,6 @@ import { PORT, CRYPTO_SIGNALS, VOLUME_PATTERNS, ALTCOIN_ALERTS, LONGTERM_ZONES }
 const app = express();
 app.use(express.json());
 app.use(express.text({ type: 'text/plain' }));
-app.use((req, res, next) => {
-  const timeout = 10000;
-  const timer = setTimeout(() => {
-    res.status(503).send('Server timeout');
-  }, timeout);
-
-  res.on('finish', () => clearTimeout(timer));
-  res.on('close', () => clearTimeout(timer));
-
-  next();
-});
 
 app.post('/crypto-signals', async (req, res) => {
   const message = req.body
